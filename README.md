@@ -1,54 +1,92 @@
-# Sistema Gerenciador de Músicas
+# 🎧 — Sistema Gerenciador de Músicas
 
 
 
 
+---
+## 👥 » Integrantes
 
-## Integrantes
+#### [Álvaro Henrique Nunes de Andrade](https://github.com/alwvaro) | [Arthur Oliveira Ramos](https://github.com/thuramos) | [Maria Heloisa da Silva Montebelo](https://github.com/Heloisamsk) | [Vinicius Freire Pereira](https://github.com/VinFpe)
 
- Arthur Oliveira Ramos / Alvaro Henrique Nunes de Andrade / Maria Heloisa da Silva Montebelo / Vinicius Freire Pereira.
+---
+## 📍 » Sobre o Projeto
 
+Projeto de Sistema web para gerenciamento de músicas, artistas, álbuns e playlists para a disciplina de Engenharia de Software ministrado pela professora [Thais Burity](https://github.com/taburity), da UFAPE, referente ao período de 2026.1 com intuito de avaliação para a 2° Verificação de Aprendizagem.
 
-
-## Sobre o Projeto
-
-Projeto de Sistema web para gerenciamento de músicas, artistas, álbuns e playlists para a disciplina de Engenharia de Software ministrado pela professora Thais Burity, da UFAPE, referente ao período de 2026.1 com intuito de avaliação para a 2- Verificação de Aprendizagem.
-
-
-
-## Tecnologias
-
-- Angular
-- Spring Boot
-- Java
-- Maven
-- Git
-- Docker
-- Postgresql
+---
 
 
-## Status do Projeto
+## 🤖 » Tecnologias
+
+### [Angular](https://angular.dev/)
+- Desenvolvimento do frontend.
+
+### [Spring Boot](https://spring.io/projects/spring-boot)
+- Desenvolvimento da API backend.
+
+### [PostgreSQL](https://www.postgresql.org/)
+- Banco de dados relacional.
+
+### [Docker](https://www.docker.com/)
+- Execução e configuração do banco de dados.
+
+### [JWT](https://jwt.io/)
+- Autenticação e autorização dos usuários.
+---
+## 🎶 » Status do Projeto
 
 - Em andamento 
 
 
+---
+## 🗺️ » Como executar
 
-## Estrutura
+### Pré-requisitos
 
+- Java 21
+- Node.js
+- Docker Desktop
+- Git
+
+### Banco de dados
+
+```bash
+docker compose up -d
 ```
-gerenciador_musica
-│
-├── frontend
-└── backend
+
+### Backend
+
+```bash
+cd backend/gerenciador-musica-backend
+./mvnw spring-boot:run
 ```
 
-### Estratégia de logout com JWT
+No Windows PowerShell:
 
-A aplicação utiliza JWT de maneira stateless. O backend valida o
-token recebido em POST /api/auth/logout e confirma o logout.
+```powershell
+.\mvnw.cmd spring-boot:run
+```
 
-Após a resposta, o frontend remove o token e a Role armazenados no
-localStorage, deixando de enviar o JWT nas próximas requisições.
+O backend ficará disponível em `http://localhost:8080`.
 
-Nesta versão acadêmica não é utilizada uma lista de tokens revogados.
-O token também deixa de ser aceito automaticamente após sua expiração.
+### Frontend
+
+```bash
+cd frontend/gerenciador_musica_frontend
+npm install
+npm start
+```
+
+O frontend ficará disponível em `http://localhost:4200`.
+
+---
+
+## 🔗 » Endpoints principais
+
+| Método | Endpoint | Acesso | Descrição |
+|---|---|---|---|
+| POST | `/api/auth/register` | Público | Cadastrar usuário |
+| POST | `/api/auth/login` | Público | Realizar login |
+| POST | `/api/auth/logout` | Autenticado | Realizar logout |
+
+---
